@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../turn.min.js"></script>
+
+<style type="text/css">
+body{
+	background:#ccc;
+}
+#mermaid{
+	width:576px;
+	height:752px;
+}
+#mermaid .turn-page{
+	background-color:#ccc;
+	background-size:100% 100%;
+}
+</style>
+</head>
+<body>
+
+<div id="mermaid">
+	<div style="background-image:url(pages/cover.jpg);"></div>
+	<div style="background-image:url(pages/0.jpg);"></div>
+	<div style="background-image:url(pages/1.jpg);"></div>
+	<div style="background-image:url(pages/2.jpg);"></div>
+	<div style="background-image:url(pages/3.jpg);"></div>
+	<div style="background-image:url(pages/4.jpg);"></div>
+	<div style="background-image:url(pages/5.jpg);"></div>
+	<div style="background-image:url(pages/6.jpg);"></div>
+	<div style="background-image:url(pages/7.jpg);"></div>
+	<div style="background-image:url(pages/9.jpg);"></div>
+	<div style="background-image:url(pages/10.jpg);"></div>
+	<div style="background-image:url(pages/11.jpg);"></div>
+	<div style="background-image:url(pages/12.jpg);"></div>
+	<div style="background-image:url(pages/13.jpg);"></div>
+	<div style="background-image:url(pages/14.jpg);"></div>
+	<div style="background-image:url(pages/15.jpg);"></div>
+	<div style="background-image:url(pages/16.jpg);"></div>
+	<div style="background-image:url(pages/17.jpg);"></div>
+	<div style="background-image:url(pages/18.jpg);"></div>
+	<div style="background-image:url(pages/19.jpg);"></div>
+	<div style="background-image:url(pages/20.jpg);"></div>
+	<div style="background-image:url(pages/21.jpg);"></div>
+	<div style="background-image:url(pages/22.jpg);"></div>
+</div>
+
+
+<script type="text/javascript">
+
+	$(window).ready(function() {
+		$('#mermaid').turn({
+							display: 'single',
+							acceleration: true,
+							gradients: !$.isTouch,
+							elevation:50,
+							when: {
+								turned: function(e, page) {
+									/*console.log('Current view: ', $(this).turn('view'));*/
+								}
+							}
+						});
+	});
+	
+	
+	$(window).bind('keydown', function(e){
+		
+		if (e.keyCode==37)
+			$('#mermaid').turn('previous');
+		else if (e.keyCode==39)
+			$('#mermaid').turn('next');
+			
+	});
+
+</script>
+
+</body>
+</html>
